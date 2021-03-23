@@ -5,4 +5,3 @@
 
 >In this repository the tasks, exercices and laboratories will be commited for assessment.
 
-_Meu nome é Gabriel Bonfim Silva de Moraes, meu RA é 216111._
