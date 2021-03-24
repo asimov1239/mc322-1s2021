@@ -1,7 +1,5 @@
-# MC322 - 1º Semestre de 2021
-## Programação Orientada a Objetos (Object Oriented Programming)
+# Aluno
+* `<Gabriel Bonfim Silva de Moraes>`
 
->Nesse repositório as tarefas, exercicios e laboratórios serão commitados para avaliação.
-
->In this repository the tasks, exercices and laboratories will be commited for assessment.
-
+# Curso
+* `<34 - Engenharia da Computação>`
