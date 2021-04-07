@@ -1,3 +1,3 @@
-## Notebook 2
+## Notebook sobre Java
 
-[Notebook 2](notebook/lab02-java-estruturas-ra216111.ipynb)
+[Notebook](notebook/lab02-java-estruturas-ra216111.ipynb)
