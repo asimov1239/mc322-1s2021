@@ -6,4 +6,4 @@
 
 ## Arquivos .java
 
-[Notebook](src/mc322/lab03)
+[Java](src/mc322/lab03)
