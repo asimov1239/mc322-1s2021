@@ -8,6 +8,12 @@ public class Wumpus extends Componente{
         super.id = 'w';
     }
 
+    /*O método rodarInteração de Wumpus é responsável
+    * por computar se o herói venceu o mostro,
+    * usando um método da classe Random e atualizando a pontuação,
+    * se o herói morreu, e retirando o identificador do componente
+    * caso ele foi derrotado
+    * */
     public void rodarInteracao(Heroi heroi) {
         if(heroi.caverna.salas[linha][coluna].visitada){
             return;

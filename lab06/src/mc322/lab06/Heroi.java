@@ -1,6 +1,11 @@
 package mc322.lab06;
 
 public class Heroi extends Componente {
+
+    /*Segue todas as informações importantes ao Heroi,
+    * incluindo uma refêrencia a caverna seguindo a
+    * arquitetura proposta.
+    */
     boolean ouro = false;
     boolean wumpus = false;
     boolean resultado = false;
@@ -14,6 +19,7 @@ public class Heroi extends Componente {
         super.id = 'h';
     }
 
+    // No final de cada iteração, a função atualizara o resultado do heroi
     private void checarResultado(){
         if(linha == 0 && coluna == 0 && ouro) {
             pontuacao += 1000;
@@ -22,29 +28,27 @@ public class Heroi extends Componente {
     }
 
 
+    // Rodar comando utiliza uma função switch para analisar cada caso
     void rodarComando(String comando) {
-        if(comando.equals("w")) {
-            subir();
-        } else if (comando.equals("s")) {
-            descer();
-        } else if (comando.equals("a")) {
-            esquerda();
-        } else if (comando.equals("d")) {
-            direita();
-        } else if (comando.equals("k")) {
-            equiparFlecha();
-        } else if (comando.equals("c")) {
-            capturarOuro();
-        } else if (comando.equals("q")) {
-            vivo = false;
-        } else {
-            System.out.println("Comando Inválido");
+        switch (comando) {
+            case "w" -> subir();
+            case "s" -> descer();
+            case "a" -> esquerda();
+            case "d" -> direita();
+            case "k" -> equiparFlecha();
+            case "c" -> capturarOuro();
+            case "q" -> vivo = false;
+            default -> System.out.println("Comando Inválido");
         }
+        /*No final da função, o resultado é checado,
+        * a caverna é printada junto com a pontuação
+        */
         checarResultado();
         caverna.printarCaverna();
         System.out.println("Pontuacao: " + this.pontuacao);
     }
 
+    //método que analisa se a flecha foi gastada a toa
     void atirarFlecha() {
         if(!caverna.salas[linha][coluna].checarWumpus() && flechaready){
             System.out.println("VOCÊ ATIRA A FLECHA... mas não tem motivo pra isso... parabéns...");
@@ -54,6 +58,10 @@ public class Heroi extends Componente {
         }
     }
 
+    /*
+    * Os próximos métodos atualizam a posição do herói na caverna junto com
+    * atualizar os pontos e checar para ver se a flecha foi atirada a toa
+    * */
     void subir(){
         if(linha - 1 >= 0) {
             caverna.salas[linha-1][coluna].explorarSala(this);
@@ -104,6 +112,10 @@ public class Heroi extends Componente {
         }
     }
 
+    /*
+    * Esse método possui uma refêrencia a caverna, depois a sala para
+    * checar se existe ouro no lugar em que o herói está
+    * */
     void capturarOuro() {
         if (caverna.salas[linha][coluna].checarOuro()){
             ouro = true;

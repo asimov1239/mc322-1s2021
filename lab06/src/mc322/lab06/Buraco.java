@@ -6,6 +6,8 @@ public class Buraco extends Componente {
         super.id = 'B';
     }
 
+    /*Se o herói cair no buraco,
+    * ele morre e perde 1000 pontos*/
     public void rodarInteracao(Heroi heroi){
         System.out.println("Presta atenção onde você anda, tu morreu... caiu em um buraco e vai ficar preso para sempre!");
         heroi.pontuacao -= 1000;

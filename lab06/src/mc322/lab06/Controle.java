@@ -10,6 +10,11 @@ public class Controle {
         this.heroi = heroi;
     }
 
+    /*
+    * rodarJogo é o método central com o loop
+    * rodando se o herói continua vivo ou se
+    * cumpriu o seu objetivo
+    * */
     void rodarJogo() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Digite seu nome: ");

@@ -3,6 +3,7 @@ package mc322.lab06;
 public class Sala {
     int qtdecomp = 0;
     boolean visitada = false;
+    //Esse campo marca os componentes que existem na sala
     Componente[] comp = new Componente[4];
     int linha, coluna;
 
@@ -12,6 +13,10 @@ public class Sala {
         this.coluna = coluna;
     }
 
+    /*
+    * Adiciona um novo componente a sala, usando
+    * polimorfismo é fácil adicionar qualquer herdeiro
+    * */
     public void novoComponente(Componente c) {
         c.linha = this.linha;
         c.coluna = this.coluna;
@@ -19,6 +24,10 @@ public class Sala {
         qtdecomp++;
     }
 
+    /*Função chamada pelo herói
+    * na hora de explorar a próxima sala,
+    * mudando o booleano assim como adicionando
+    * o herói como componente*/
     public void explorarSala(Heroi heroi){
         for (int i = 0; i < qtdecomp; i++) {
             comp[i].rodarInteracao(heroi);
@@ -28,6 +37,11 @@ public class Sala {
         novoComponente(heroi);
     }
 
+
+    /*
+    * Os dois próximos métodos checam para ver se o ouro ou o wumpus estão
+    * na sala
+    * */
     public boolean checarOuro(){
         for(int i = 0; i < qtdecomp; i++){
             if (comp[i].id == 'o'){
@@ -47,6 +61,10 @@ public class Sala {
         return false;
     }
 
+    /*Essa função
+    * retorna o componente com maior
+    * prioridade na hora de printar
+    * */
     public String retornarPrioridade() {
         if(visitada) {
             if(qtdecomp == 0) {

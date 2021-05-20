@@ -6,6 +6,11 @@ public class Montador {
     String[][] salas;
     Heroi heroi;
 
+
+    /*
+    * O construtor do montador atualiza cada um de seus campos de acordo
+    * com o caminho do .csv
+    * */
     Montador(String entrada) {
         this.heroi = new Heroi();
         this.caverna = new Caverna();
@@ -15,6 +20,10 @@ public class Montador {
         this.heroi.caverna = this.caverna;
     }
 
+    /*
+    * Esse método possui quatro condicionais atualizando os arredores do wumpus
+    * ou do buraco.
+    * */
     private void componenteAdjacente(Componente x, int linha, int coluna) {
         int adjlinha = linha + 1; int adjcoluna = coluna;
         if (adjlinha >= 0 && adjcoluna >= 0
@@ -38,15 +47,11 @@ public class Montador {
         }
     }
 
-
+    /*
+     * Usando o parâmetro das salas, é o principal método
+     * ao atualizar a caverna com cada componente
+     *  */
     private Caverna montarCaverna(String[][] salas) {
-//        for(int i = 0; i < salas.length; i++){
-//            for(int j = 0; j < salas[i].length; j++) {
-//                System.out.print(salas[i][j]);
-//                System.out.print("  ");
-//            }
-//            System.out.print("\n");
-//        }
 
         for(int i = 0; i < salas.length; i++) {
             String sala = salas[i][0];
@@ -76,12 +81,17 @@ public class Montador {
         return caverna;
     }
 
+    /*
+    * Retorna o vetor de salas de acordo com o arquivo csv
+    * utilizado como argumento
+    * */
     private String[][] montarSalas(String entrada) {
         CSVHandling csv = new CSVHandling();
         csv.setDataSource(entrada);
         return csv.requestCommands();
     }
 
+    // Retorna o herói para iniciar o controle
     public Heroi retornarHeroi(){
         return this.heroi;
     }
